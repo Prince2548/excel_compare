@@ -5,59 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/style.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #f0f4f8;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-    
-        form {
-            background-color: #ffffff;
-            padding: 30px 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-    
-        label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 6px;
-            color: #333;
-        }
-    
-        input[type="file"] {
-            margin-bottom: 20px;
-        }
-    
-        button {
-            padding: 10px 20px;
-            background-color: #0077cc;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-    
-        button:hover {
-            background-color: #005fa3;
-        }
-    </style>
 </head>
 <body>
     <form action="/submit" method="post" enctype="multipart/form-data">
             <label>Upload File 1:</label><br>
-            <input type="file" name="file1" accept=".xlsx, .xls"><br><br>
+            <input type="file" name="file1" accept=".xlsx, .xls, .csv"><br><br>
             
             <label>Upload File 2:</label><br>
-            <input type="file" name="file2" accept=".xlsx, .xls"><br><br>
+            <input type="file" name="file2" accept=".xlsx, .xls, .csv"><br><br>
             
             <button type="submit">Compare</button>
     </form>

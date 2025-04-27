@@ -1,14 +1,13 @@
 import express from "express";
 import multer from "multer";
 import xlsx from "xlsx";
-//import { readFile, utils, writeFile } from "xlsx";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const { readFile, utils, writeFile } = xlsx; 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

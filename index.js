@@ -103,7 +103,8 @@ app.post(
         fs.mkdirSync(outputDir, { recursive: true });
       }
 
-      writeFile(workbook, outputPath);
+      //writeFile(workbook, outputPath);
+      fs.writeFileSync(outputPath.replace('.xlsx', '.csv'), utils.sheet_to_csv(worksheet));
 
       // Clean up uploads
       fs.unlinkSync(file1.path);

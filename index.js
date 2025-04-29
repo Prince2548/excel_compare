@@ -92,11 +92,11 @@ app.post(
       const worksheet = utils.json_to_sheet(vincereFormat, {
         header: headers,
       });
-      const workbook = utils.book_new();
-      utils.book_append_sheet(workbook, worksheet, "Sheet1");
+
+      const csvData = utils.sheet_to_csv(worksheet);
 
       const outputDir = path.join(__dirname, "filterContact");
-      const outputPath = path.join(outputDir, "filteredContact.xlsx");
+      const outputPath = path.join(outputDir, "filteredContact.csv");
 
       // Ensure output directory exists
       if (!fs.existsSync(outputDir)) {
@@ -104,7 +104,6 @@ app.post(
       }
 
       writeFile(workbook, outputPath);
-      //fs.writeFileSync(outputPath.replace('.xlsx', '.csv'), utils.sheet_to_csv(worksheet));
 
       // Clean up uploads
       fs.unlinkSync(file1.path);

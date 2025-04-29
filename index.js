@@ -93,6 +93,9 @@ app.post(
         header: headers,
       });
 
+      // const worksheet = utils.json_to_sheet(vincereFormat, { header: headers });
+
+      // Convert worksheet to CSV string
       const csvData = utils.sheet_to_csv(worksheet);
 
       const outputDir = path.join(__dirname, "filterContact");
@@ -103,7 +106,20 @@ app.post(
         fs.mkdirSync(outputDir, { recursive: true });
       }
 
-      writeFile(workbook, outputPath);
+      // Write CSV string to a file
+      fs.writeFileSync(outputPath, csvData);
+
+      // const csvData = utils.sheet_to_csv(worksheet);
+
+      // const outputDir = path.join(__dirname, "filterContact");
+      // const outputPath = path.join(outputDir, "filteredContact.csv");
+
+      // // Ensure output directory exists
+      // if (!fs.existsSync(outputDir)) {
+      //   fs.mkdirSync(outputDir, { recursive: true });
+      // }
+
+      // writeFile(workbook, outputPath);
 
       // Clean up uploads
       fs.unlinkSync(file1.path);
